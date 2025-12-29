@@ -1,0 +1,46 @@
+name: aliexpress-deals-bot
+region: nyc
+
+# Worker component - runs continuously in the background
+workers:
+  - name: deals-bot-worker
+    github:
+      repo: YOUR_GITHUB_USERNAME/YOUR_REPO_NAME
+      branch: main
+      deploy_on_push: true
+    run_command: python3 deals_bot.py --mode continuous --interval 6
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    # Environment variables - Set secrets in DigitalOcean dashboard (Settings > App-Level Environment Variables)
+    envs:
+      - key: TARGET_CURRENCY
+        scope: RUN_TIME
+        value: BRL
+      - key: QUERY_COUNTRY
+        scope: RUN_TIME
+        value: BR
+      - key: MIN_DISCOUNT_PERCENT
+        scope: RUN_TIME
+        value: "10"
+      - key: MAX_DEALS_PER_RUN
+        scope: RUN_TIME
+        value: "25"
+      - key: DUPLICATE_CHECK_HOURS
+        scope: RUN_TIME
+        value: "24"
+      - key: MESSAGE_DELAY_SECONDS
+        scope: RUN_TIME
+        value: "3"
+      - key: DEALS_DB_PATH
+        scope: RUN_TIME
+        value: deals_history.db
+    # Required secrets (set these in DigitalOcean dashboard):
+    # - GOOGLE_SPREADSHEET_ID
+    # - TELEGRAM_BOT_TOKEN
+    # - TELEGRAM_CHANNEL_ID
+    # - ALIEXPRESS_APP_KEY
+    # - ALIEXPRESS_APP_SECRET
+    # - ALIEXPRESS_TRACKING_ID
+    # - USD_TO_BRL_RATE (optional, defaults to API fetch)
+    build_command: pip3 install -r requirements.txt
+

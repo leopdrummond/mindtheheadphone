@@ -1,0 +1,22 @@
+[Unit]
+Description=AliExpress Deals Bot - Automated Deal Monitoring
+After=network.target
+
+[Service]
+Type=simple
+User=hi
+Group=hi
+WorkingDirectory=/home/hi/Documents/work/New_aliexpress_telegram_bot/Aliexpress-telegram-bot
+Environment="PATH=/usr/bin:/usr/local/bin"
+ExecStart=/usr/bin/python3 deals_bot.py --mode continuous --interval 6
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/deals-bot.log
+StandardError=append:/var/log/deals-bot-error.log
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+
