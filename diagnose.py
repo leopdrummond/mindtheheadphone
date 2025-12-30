@@ -98,7 +98,7 @@ def check_google_sheets():
     print(f"Spreadsheet URL: https://docs.google.com/spreadsheets/d/{spreadsheet_id}/edit")
     print()
     
-    test_gids = [0, 841822689, 362895356, 1891840859]
+    test_gids = [0, 841822689]
     
     for gid in test_gids:
         url = f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/export?format=csv&gid={gid}"

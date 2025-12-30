@@ -98,8 +98,8 @@ For each sheet tab you want to monitor:
 **Current spreadsheet configuration:**
 - Spreadsheet ID: Set in `.env` as `GOOGLE_SPREADSHEET_ID`
 - **EARPHONES**: `841822689` ✅ (configured in `deals_bot.py`)
-- **HEADPHONES**: `362895356` ✅ (configured in `deals_bot.py`)
-- **ELETRÔNICOS**: `1891840859` ✅ (configured in `deals_bot.py`)
+<!-- - **HEADPHONES**: `362895356` ✅ (configured in `deals_bot.py`) -->
+<!-- - **ELETRÔNICOS**: `1891840859` ✅ (configured in `deals_bot.py`) -->
 
 **To use a different spreadsheet:**
 1. Update `GOOGLE_SPREADSHEET_ID` in `.env`
@@ -111,8 +111,8 @@ All three sheets are already configured in `deals_bot.py`:
 ```python
 DEFAULT_SHEET_GIDS = {
     "EARPHONES": 841822689,
-    "HEADPHONES": 362895356,
-    "ELETRÔNICOS": 1891840859,
+   #  "HEADPHONES": 362895356,
+   #  "ELETRÔNICOS": 1891840859,
 }
 ```
 

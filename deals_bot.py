@@ -34,7 +34,7 @@ DB_PATH = os.getenv('DEALS_DB_PATH', 'deals_history.db')
 DEFAULT_SHEET_GIDS = {
     "EARPHONES": 841822689,      
     # "HEADPHONES": 362895356,     
-    "ELETRÔNICOS": 1891840859,   
+    # "ELETRÔNICOS": 1891840859,   
 }
 
 
