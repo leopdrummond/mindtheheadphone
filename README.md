@@ -253,6 +253,9 @@ Aliexpress-telegram-bot/
 ├── env.example            # Configuration template
 ├── README.md
 ├── DEPLOYMENT.md          # Server deployment guide
+├── API_TESTING.md         # API testing guide and troubleshooting
+├── CONTACT_ALIEXPRESS.md  # Guide for contacting AliExpress about API access
+├── test_product.py        # Script to test product API access
 ├── deals-bot.service      # Systemd service file
 ├── setup_service.sh       # Service setup script
 ├── diagnose.py            # Diagnostic tool
@@ -330,6 +333,28 @@ All prices are:
 - AliExpress API: ~20 requests/second (handled by batch processing with 2s delays)
 - Telegram: ~30 messages/second (handled by 3s delays between messages)
 - Batch size: 5 products per batch to avoid rate limiting
+
+## 🧪 Testing Product API Access
+
+Before adding products to your spreadsheet, test if they're accessible via the AliExpress Affiliate API:
+
+```bash
+python3 test_product.py <product_id>
+```
+
+**Example:**
+```bash
+python3 test_product.py 3256809081965886
+```
+
+This tests the product with different API configurations and shows:
+- ✅ If the product is accessible via API
+- ⚠️ If the product exists but isn't API-accessible  
+- ❌ API errors or configuration issues
+
+**📖 For detailed testing guide, troubleshooting, and how to contact AliExpress, see:**
+- **[API_TESTING.md](API_TESTING.md)** - Complete testing guide
+- **[CONTACT_ALIEXPRESS.md](CONTACT_ALIEXPRESS.md)** - How to contact AliExpress about API access
 
 ### Troubleshooting
 
